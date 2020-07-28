@@ -9,7 +9,8 @@ const forecast = ([lat, lon, units = 'metric'] = [], callback) => {
     } else if (body.error) {
       console.log(body.error);
     } else {
-      callback(undefined, `${body.weather[0].description}, ${body.main.temp}${units === 'metric' ? '\u2103' : '\u2109'}`);
+      const unitC = units === 'metric' ? '\u2103' : '\u2109';
+      callback(undefined, `${body.weather[0].description}, ${body.main.temp}${unitC} (feels like ${body.main.feels_like}${unitC}, high: ${body.main.temp_max}${unitC}, low: ${body.main.temp_min}${unitC})`);
     }
   });
 };
