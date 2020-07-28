@@ -18,7 +18,6 @@ weatherSearchForm.addEventListener("submit", (e) => {
           } else {
             message1.textContent = data.forecast;
             message2.textContent = data.location;
-            console.log(data);
           }
         });
       }
